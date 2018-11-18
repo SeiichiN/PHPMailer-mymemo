@@ -7,13 +7,17 @@ My memo of PHPMailer
 
 1) PHPMailerのインストール
 
+```
 $ composer require phpmailer/phpmailer
+```
 
 2) mymail.php の中の必要事項を記述。
 
 3) 以下のコマンドを入力する。
 
+```
 $ php mymail.php
+```
 
 これで、無事にメールが送信できればＯＫ。
 
