@@ -5,19 +5,19 @@ My memo of PHPMailer
 
 使おうとするたびに、PHPMailerのGitを見たり、他の人のサイトを見たりしていたので、自分のためにここにメモをおきます。
 
-1) composer のインストール
+1. composer のインストール
 
-[windows用](https://getcomposer.org/doc/00-intro.md#installation-windows)
+  [windows用](https://getcomposer.org/doc/00-intro.md#installation-windows)
 
-1) PHPMailerのインストール
+2. PHPMailerのインストール
 
 ```
 $ composer require phpmailer/phpmailer
 ```
 
-2) mymail.php の中の必要事項を記述。
+3. mymail.php の中の必要事項を記述。
 
-3) 以下のコマンドを入力する。
+4. 以下のコマンドを入力する。
 
 ```
 $ php mymail.php
