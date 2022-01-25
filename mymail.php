@@ -29,6 +29,9 @@ const REPLY_ADDRESS = "getMail@gmail.com, 'Your Name'";
  *         string $reply -- 返信先を指定することができる。
  */
 function mymail($subject, $body, $to, $reply = NULL) {
+  $original_encoding = mb_internal_encoding();
+  mb_internal_encoding('UTF-8');
+
   $from = MAIL_ACCOUNT;
   $pass = MAIL_PASS;
   if ($reply = NULL) $reply = REPLY_ADDRESS;
@@ -50,25 +53,26 @@ function mymail($subject, $body, $to, $reply = NULL) {
     $mail->Subject = mb_encode_mimeheader($subject);
     $mail->Body = mb_convert_encoding($body, "JIS", "UTF-8");
     $mail->send();  
-    echo '送信しました。';
-    return true;
+    $msg =  '送信しました。';
   }
   catch (Exception $e) {
-    echo '送信できませんでした。';
+    $msg = '送信できませんでした。';
     echo "Mailer Error: {$mail->ErrorInfo}";
-    return false;
   }
+  mb_internal_encoding($original_encoding);
+  return $msg;
 }
 
 $subject = "テストメール6";
 $to = "xxxxxx@gmail.com";             // 送り先メールアドレス
 $body = "これはテストメール6です。\n";
 
-mymail($subject, $body, $to);
+$msg = mymail($subject, $body, $to);
+echo $msg;
 
 /********************************************
    (参考)
    https://github.com/PHPMailer/PHPMailer
  ********************************************/
 
-// 修正時刻: Sat Jan 22 16:06:28 2022
+// 修正時刻: Tue Jan 25 20:07:33 2022
