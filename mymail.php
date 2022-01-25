@@ -30,6 +30,7 @@ const REPLY_ADDRESS = "getMail@gmail.com, 'Your Name'";
  */
 function mymail($subject, $body, $to, $reply = NULL) {
   // iso-2022-jpで送信するためには、以下の設定が必要。
+  mb_language("japanese");
   $original_encoding = mb_internal_encoding();
   mb_internal_encoding('UTF-8');
 
@@ -76,4 +77,4 @@ echo $msg;
    https://github.com/PHPMailer/PHPMailer
  ********************************************/
 
-// 修正時刻: Tue Jan 25 20:16:36 2022
+// 修正時刻: Tue Jan 25 21:46:29 2022
