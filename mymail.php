@@ -29,6 +29,7 @@ const REPLY_ADDRESS = "getMail@gmail.com, 'Your Name'";
  *         string $reply -- 返信先を指定することができる。
  */
 function mymail($subject, $body, $to, $reply = NULL) {
+  // iso-2022-jpで送信するためには、以下の設定が必要。
   $original_encoding = mb_internal_encoding();
   mb_internal_encoding('UTF-8');
 
@@ -59,7 +60,7 @@ function mymail($subject, $body, $to, $reply = NULL) {
     $msg = '送信できませんでした。';
     echo "Mailer Error: {$mail->ErrorInfo}";
   }
-  mb_internal_encoding($original_encoding);
+  mb_internal_encoding($original_encoding);   // もとに戻す
   return $msg;
 }
 
@@ -75,4 +76,4 @@ echo $msg;
    https://github.com/PHPMailer/PHPMailer
  ********************************************/
 
-// 修正時刻: Tue Jan 25 20:07:33 2022
+// 修正時刻: Tue Jan 25 20:16:36 2022
